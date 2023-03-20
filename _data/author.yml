@@ -1,0 +1,23 @@
+name: Gergely Lantos
+dp: https://avatars.githubusercontent.com/u/5176423?s=400&u=f9561b4e88aef1f9eb97b5ddfdadd4c994421aed&v=4
+description: "
+  <p>
+    My personal blog for pet projects and interesting things I'm working on.
+  </p>
+  <br/>
+  <p>
+    Follow on <a href='https://github.com/aiiaiiiyo' target='_blank'>Github</a>
+  </P>
+"
+email: dev_sharad@outlook.com
+contact:
+  - title: linkedin
+    url: https://www.linkedin.com
+  - title: github
+    url: https://github.com/aiiaiiiyo
+  - title: twitter
+    url: https://twitter.com/lantig
+  - title: dev
+    url: 
+  - title: email
+    url: mailto:x@y.z
