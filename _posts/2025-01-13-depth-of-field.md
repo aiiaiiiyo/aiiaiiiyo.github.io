@@ -7,7 +7,7 @@ tags: [UE]
 
 ### Foreword
 
-![Final Result](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/img/depthoffield.gif?raw=true)
+![Final Result](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/depthoffield.gif?raw=true)
 
 In my upcoming horror game, I wanted to implement a Depth of Field effect on the camera. If you're not familiar, Depth of Field is the effect where the foreground appears sharp while the background is blurred.
 
