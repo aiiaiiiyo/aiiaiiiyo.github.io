@@ -1,6 +1,6 @@
 ---
 title: Depth of Field Post Process Effect in Unreal Engine with CPP
-date: +0100
+date: YYYY-MM-DD HH:MM:SS +0100
 categories: ["Unreal Engine", "Post Process", "CPP"]
 tags: [UE]
 ---
