@@ -83,6 +83,7 @@ FVector CamLocation = FollowCamera->GetComponentLocation();
 FVector FwdVector = UKismetMathLibrary::Multiply_VectorFloat(FollowCamera->GetForwardVector(), 10000.f);
 FVector End = UKismetMathLibrary::Add_VectorVector(CamLocation, FwdVector);
 ```
+{: file="Character.cpp" }
 
 We cast a line trace and store the result in a `bool` named `bIsBlockingHitFound`.
 
