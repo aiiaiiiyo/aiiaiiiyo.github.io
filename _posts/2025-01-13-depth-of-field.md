@@ -33,6 +33,7 @@ float DOFUpdateRate = .2f; //Rate the update function is called
 UFUNCTION()
 void DepthOfFieldUpdate() const;
 ```
+{: file="Character.h" }
 
 The camera is already defined in our character class and was set up as follows:
 
@@ -40,6 +41,7 @@ The camera is already defined in our character class and was set up as follows:
 UPROPERTY(VisibleAnywhere, Category=" Camera")
 TObjectPtr<UCameraComponent> FollowCamera = nullptr;
 ```
+{: file="Character.h" }
 
 It is initialized in the constructor and attached to a `SpringArmComponent`:
 
@@ -47,6 +49,7 @@ It is initialized in the constructor and attached to a `SpringArmComponent`:
 FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 FollowCamera->SetupAttachment(SpringArmComponent, USpringArmComponent::SocketName);
 ```
+{: file="Character.cpp" }
 
 ### Set the Timer in BeginPlay
 In the `BeginPlay` function, we set the timer with the required parameters:
@@ -59,9 +62,13 @@ GetWorld()->GetTimerManager().SetTimer(
   DOFUpdateRate,
   true);
 ```
+{: file="Character.cpp" }
 
 - `DOFUpdateTimerHandle`: This timer handle manages the `DepthOfFieldUpdate` function, ensuring it's called repeatedly at the specified interval.
+- `this`: Object to call the timer function on.
+- `DepthOfFieldUpdate`: Method to call when timer fires, defined with the scope.
 - `DOFUpdateRate`: This is the interval at which the function is called. In this case, it's set to `0.2` seconds.
+- `true`: Keep firing at `DOFUpdateRate` intervals, false to fire only once.
 
 ### DepthOfFieldUpdate function
 We need to cast a LineTrace from the camera position into the distance in a straight line and then set the distance as the Focal Distance on the camera.
@@ -88,6 +95,10 @@ bool bIsBlockingHitFound = GetWorld()->LineTraceSingleByChannel(
     ECC_Visibility
 );
 ```
+{: file="Character.cpp" }
+
+![Line Trace](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/linetrace.png?raw=true)
+_The green line represents the distance we are trying to determine._
 
 If we have a blocking hit, we subtract the hit result location from the camera position, and the length of this vector will be the distance to the object hit.
 This distance can then be used as the Focal Distance in the Post-Process settings.
@@ -101,6 +112,7 @@ if(bIsBlockingHitFound)
         FMath::FInterpTo(FollowCamera->PostProcessSettings.DepthOfFieldFocalDistance, FocusLocation, DOFUpdateRate, 2.f);
 }
 ```
+{: file="Character.cpp" }
 
 We need to set two additional parameters for this to work within our `BeginPlay`
 ```cpp
@@ -109,6 +121,7 @@ FollowCamera->PostProcessSettings.DepthOfFieldFstop = 1.f;
 FollowCamera->PostProcessSettings.bOverride_DepthOfFieldMinFstop = true;
 FollowCamera->PostProcessSettings.DepthOfFieldMinFstop = 11.f;
 ```
+{: file="Character.cpp" }
 
 > One important detail when setting post-process values from C++ is that you first need to set the `bOverride_` variable of the specific parameter to `true`, otherwise, it will not work.
 {: .prompt-tip }
@@ -126,5 +139,6 @@ PostProcessVolumeSettings->DepthOfFieldMinFstop = 11.f;
 PostProcessVolumeSettings->bOverride_DepthOfFieldFocalDistance = true;
 PostProcessVolumeSettings->DepthOfFieldFocalDistance = FocusLocation;
 ```
+{: file="Character.cpp" }
 
 With this setup, you now have a Depth of Field effect that updates periodically.
