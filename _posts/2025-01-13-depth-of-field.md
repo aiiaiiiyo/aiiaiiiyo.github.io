@@ -102,7 +102,8 @@ bool bIsBlockingHitFound = GetWorld()->LineTraceSingleByChannel(
 _The green line represents the distance we are trying to determine._
 
 If we have a blocking hit, we subtract the hit result location from the camera position, and the length of this vector will be the distance to the object hit.
-This distance can then be used as the Focal Distance in the Post-Process settings.
+This distance can then be used as the Focal Distance for the Post-Process settings, whether applied on the volume in the level or directly on the camera.
+Using `FMath::FInterpTo` to ensure the transition is not instant, but gradually smoothed out over time.
 ```cpp
 if(bIsBlockingHitFound)
 {
