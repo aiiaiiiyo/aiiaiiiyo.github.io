@@ -9,7 +9,7 @@ tags: [UE]
 
 ![Final Result](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/depthoffield.gif?raw=true)
 
-In my upcoming horror game, I wanted to implement a Depth of Field effect on the camera. If you're not familiar, Depth of Field is the effect where the foreground appears sharp while the background is blurred.
+I wanted to implement a Depth of Field effect on the camera. If you're not familiar, Depth of Field is the effect where the foreground appears sharp while the background is blurred.
 
 There are two ways I can think of to achieve this:
 - Modifying the Post-Process settings on the player's camera
