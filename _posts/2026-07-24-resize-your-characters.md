@@ -26,11 +26,13 @@ Under Export Options, choose `FBX 2013` and uncheck all other options.
 
 To import your skeletal mesh into Blender, select `File → Import → FBX (.fbx)`.
 ![Import Menu](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_import.png?raw=true)
+
 No special settings are required here. Leave everything at its default values.
 
 ### Resize Your Skeleton in Blender
 
 There is a scale discrepancy between Unreal Engine and Blender. To compensate for this, set the Scene `Unit Scale` to `0.01` in Blender.
+
 ![Unit Scale](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_unitscale.png?raw=true)
 
 Next, scale your object by 100×, resulting in a scale of `1.000`. This will make the model appear much larger in Blender, but it will have the correct proportions when imported back into Unreal Engine.
@@ -52,17 +54,17 @@ There is one important setting to change. Under `Geometry`, set `Smoothing` to `
 > No smoothing group information was found for this mesh '`NameOfYourMesh`' in the FBX file. Please make sure to enable the 'Export Smoothing Groups' option in the FBX Exporter before exporting the file.
 {: .prompt-warning }
 
-![Smoothing](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_smoothing?raw=true)
+![Smoothing](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_smoothing.png?raw=true)
 
 Another issue I encountered was that the `Armature` name appeared as the skeleton's root bone, becoming the parent of the actual root bone.
-![Root Bone](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_armature_name?raw=true)
+![Root Bone](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_armature_name.png?raw=true)
 
 The easiest way to fix this without deleting anything is to rename the `Armature` object in Blender to `armature`. Unreal Engine recognizes this name and imports the skeleton correctly, with the proper root bone hierarchy.
-![Root Bone Fix](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_armature_name_fix?raw=true)
+![Root Bone Fix](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_armature_name_fix.png?raw=true)
 
 ### Final Result
 
 When importing the mesh back into Unreal Engine, leave all import settings at their default values.
 
 The final result can be seen on the right side of the image below.
-![Root Bone Fix](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_problemfixed?raw=true)
+![Root Bone Fix](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_problemfixed.png?raw=true)
