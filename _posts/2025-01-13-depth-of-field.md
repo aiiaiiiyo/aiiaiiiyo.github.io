@@ -2,7 +2,7 @@
 title: Depth of Field Post Process Effect in Unreal Engine with CPP
 date: 2025-01-13 21:20:00 +0100
 categories: ["Unreal Engine", "Post Process", "CPP"]
-tags: [UE]
+tags: [ue, postprocess]
 ---
 
 ### Foreword
