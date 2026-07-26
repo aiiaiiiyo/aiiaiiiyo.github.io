@@ -41,7 +41,7 @@ Next, scale your object by 100×, resulting in a scale of `1.000`. This will mak
 In my case, I wanted to make the character smaller, so I set the `X`, `Y`, and `Z` scale values to `0.770`.
 ![Object Scale Smaller](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_scale2.png?raw=true)
 
-If you plan to continue editing the model, you can apply the scale by pressing `Ctrl + A` and selecting `Scale`.
+You need to apply the object's current transform to bake the scale into the armature. This resets the object's transform values. The scale will become `1,1,1`, but the object stays visually the same. To apply the scale, press `Ctrl + A` and select `Scale`.
 ![Set Scale Base](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_scale3.png?raw=true)
 
 ### Export From Blender
@@ -56,10 +56,10 @@ There is one important setting to change. Under `Geometry`, set `Smoothing` to `
 
 ![Smoothing](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_smoothing.png?raw=true)
 
-Another issue I encountered was that the `Armature` name appeared as the skeleton's root bone, becoming the parent of the actual root bone.
+Another issue I encountered was that the Armature name appeared as the skeleton's root bone, becoming the parent of the actual root bone.
 ![Root Bone](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_armature_name.png?raw=true)
 
-The easiest way to fix this without deleting anything is to rename the `Armature` object in Blender to `armature`. Unreal Engine recognizes this name and imports the skeleton correctly, with the proper root bone hierarchy.
+The easiest way to fix this without deleting anything is to rename the Armature object in Blender to `armature`. Unreal Engine recognizes this name and imports the skeleton correctly, with the proper root bone hierarchy.
 ![Root Bone Fix](https://github.com/aiiaiiiyo/aiiaiiiyo.github.io/blob/main/assets/img/resize_armature_name_fix.png?raw=true)
 
 ### Final Result
