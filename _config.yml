@@ -151,9 +151,6 @@ paginate: 10
 
 # The base URL of your site
 baseurl: ""
-url: "https://aiiaiiiyo.github.io"
-plugins:
-  - jekyll-sitemap
 
 # ------------ The following options are not recommended to be modified ------------------
 
